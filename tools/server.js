@@ -17,7 +17,7 @@ const rekitPortalMiddleWare = require('rekit-portal/middleware');
 const request = require('request');
 const pkgJson = require('../package.json');
 const getConfig = require('../webpack-config');
-const ArgumentParser = require('argparse').ArgumentParser;
+const { ArgumentParser } = require('argparse');
 
 const parser = new ArgumentParser({
   addHelp: true,
