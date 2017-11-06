@@ -1,3 +1,5 @@
+'use strict';
+
 /*
   Summary:
     Run specific tests
@@ -7,7 +9,6 @@
    - node run_test.js features/home/redux/reducer.test.js // run reducer test
 */
 
-'use strict';
 const path = require('path');
 // const shell = require('shelljs');
 const npmRun = require('npm-run');

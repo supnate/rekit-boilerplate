@@ -1,15 +1,16 @@
 'use strict';
+
 // Summary:
 //  Build for production
 
 const path = require('path');
 const shell = require('shelljs');
 const crypto = require('crypto');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const config = require('../webpack-config')('dist');
-const ArgumentParser = require('argparse').ArgumentParser;
+const { ArgumentParser } = require('argparse');
 
 const parser = new ArgumentParser({
   addHelp: true,
