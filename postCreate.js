@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint "no-use-before-define": 0 */
+
 // This script is executed after a project is created with this boilerplate.
 // After execution, the script will be deleted.
 
@@ -10,11 +12,22 @@ const prjPath = __dirname;
 const pkgJsonPath = path.join(prjPath, 'package.json');
 
 function postCreate(args) {
-  console.log('post create', args);
+  handleCleanArgument(args);
+  handleSassArgument(args);
+}
 
-  // Handle --clean argument
+function handleCleanArgument(args) {
   const cleanFiles = [];
-  ['src/features/home', 'src/features/home/redux', 'src/features/common', 'src/features/common/redux'].forEach((folder) => {
+  [
+    'src/features/home',
+    'src/features/home/redux',
+    'src/features/common',
+    'src/features/common/redux',
+    'src/styles',
+    'tests/features/home',
+    'tests/features/home/redux',
+    'tests/features/common',
+  ].forEach((folder) => {
     const fullFolderPath = path.join(prjPath, folder);
     fs.readdirSync(fullFolderPath).forEach((file) => {
       if (/\.clean\./.test(file)) {
@@ -23,7 +36,6 @@ function postCreate(args) {
       }
     });
   });
-  console.log('clean files: ', cleanFiles);
   if (args.clean) {
     [
       'src/features/common/PageNotFound.js',
@@ -38,6 +50,14 @@ function postCreate(args) {
       'src/features/home/redux/counterPlusOne.js',
       'src/features/home/redux/resetCounter.js',
       'src/features/home/redux/fetchRedditReactjsList.js',
+      'tests/features/common/PageNotFound.test.js',
+      'tests/features/common/SimpleNav.test.js',
+      'tests/features/home/RedditList.test.js',
+      'tests/features/home/TestPage.test.js',
+      'tests/features/home/redux/counterMinusOne.test.js',
+      'tests/features/home/redux/counterPlusOne.test.js',
+      'tests/features/home/redux/fetchRedditReactjsList.test.js',
+      'tests/features/home/redux/resetCounter.test.js',
     ].forEach(file => fs.unlinkSync(path.join(prjPath, file)));
 
     cleanFiles.forEach((file) => {
@@ -48,9 +68,10 @@ function postCreate(args) {
   } else {
     cleanFiles.forEach(fs.unlinkSync);
   }
+}
 
+function handleSassArgument(args) {
   const pkgJson = require(pkgJsonPath); // eslint-disable-line
-
   // Handle --sass argument
   if (args.sass) {
     // Use webpack sass-loader
@@ -78,7 +99,6 @@ function postCreate(args) {
     delete pkgJson.devDependencies['sass-loader'];
   }
   fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, '  '));
-  
 }
 
 module.exports = postCreate;

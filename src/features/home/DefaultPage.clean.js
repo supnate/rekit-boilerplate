@@ -13,7 +13,7 @@ export class DefaultPage extends Component {
   render() {
     return (
       <div className="home-default-page">
-        Welcome to Rekit!
+        Hello Rekit!
       </div>
     );
   }
