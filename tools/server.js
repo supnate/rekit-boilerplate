@@ -90,8 +90,6 @@ function startDevServer() {
       console.log(`Proxy to API Server(Only for dev): ${API}`);
     }
   });
-
-  compiler.plugin('done', (...args) => console.log('done: ', args));
 }
 
 // Start an express server for build result.
