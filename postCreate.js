@@ -14,6 +14,9 @@ const pkgJsonPath = path.join(prjPath, 'package.json');
 function postCreate(args) {
   handleCleanArgument(args);
   handleSassArgument(args);
+
+  // Empty readme
+  fs.writeFileSync(path.join(prjPath, 'README.md'), '# README\n');
 }
 
 function handleCleanArgument(args) {
