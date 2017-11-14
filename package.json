@@ -1,6 +1,6 @@
 {
   "name": "rekit-boilerplate",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "The default Rekit project boilerplate for ES6.",
   "keywords": [
