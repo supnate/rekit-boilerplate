@@ -17,6 +17,19 @@ function postCreate(args) {
 
   // Empty readme
   fs.writeFileSync(path.join(prjPath, 'README.md'), '# README\n');
+
+  // Remove unnecessary files
+  [
+    '.travis.yml',
+    'yarn.lock',
+    'LICENSE',
+  ].forEach(file => fs.unlinkSync(path.join(prjPath, file)));
+
+  // Clean package.json
+  const pkgJson = require(pkgJsonPath); // eslint-disable-line
+  delete pkgJson.devDependencies['codecov']; // eslint-disable-line
+  delete pkgJson.scripts['codecov']; // eslint-disable-line
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, '  '));
 }
 
 function handleCleanArgument(args) {

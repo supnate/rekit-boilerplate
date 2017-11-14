@@ -1,6 +1,6 @@
 {
   "name": "rekit-boilerplate",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "The default Rekit project boilerplate for ES6.",
   "keywords": [
@@ -14,6 +14,7 @@
     "css": "less"
   },
   "scripts": {
+    "codecov": "codecov",
     "start": "node ./tools/server.js",
     "build": "node ./tools/build.js",
     "test": "node ./tools/run_test.js"
@@ -33,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.1.2",
+    "codecov": "^3.0.0",
     "css-loader": "^0.28.4",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
@@ -45,6 +47,7 @@
     "express": "^4.16.2",
     "express-history-api-fallback": "^2.2.1",
     "file-loader": "^1.1.5",
+    "history": "^4.7.2",
     "jsdom": "^11.2.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
@@ -69,7 +72,9 @@
     "redux-thunk": "^2.2.0",
     "rekit-core": "^2.1.1",
     "rekit-portal": "^2.0.7",
+    "request": "^2.83.0",
     "sass-loader": "^6.0.6",
+    "shelljs": "^0.7.8",
     "sinon": "^4.0.2",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
@@ -78,10 +83,5 @@
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.20.0",
     "webpack-node-externals": "^1.6.0"
-  },
-  "dependencies": {
-    "history": "^4.7.2",
-    "request": "^2.83.0",
-    "shelljs": "^0.7.8"
   }
 }
