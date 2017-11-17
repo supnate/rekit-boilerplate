@@ -15,7 +15,7 @@ const middlewares = [
 let devToolsExtension = f => f;
 
 /* istanbul ignore if  */
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'dev') {
   const { createLogger } = require('redux-logger');
 
   const logger = createLogger({ collapsed: true });
