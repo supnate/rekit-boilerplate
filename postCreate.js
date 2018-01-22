@@ -100,6 +100,8 @@ function handleSassArgument(args) {
     delete pkgJson.devDependencies['less']; // eslint-disable-line
     delete pkgJson.devDependencies['less-loader'];
 
+    pkgJson.rekit.css = 'scss';
+
     // Rename files extension to 'scss'
     ['src/features/home', 'src/features/common', 'src/styles'].forEach((folder) => {
       const fullFolderPath = path.join(prjPath, folder);
