@@ -1,7 +1,7 @@
 'use strict';
 
 // Summary:
-//  This script is used to start dev server, build result server and rekit portal.
+//  This script is used to start dev server, build result server and Rekit Studio.
 //  Feel free to edit it to meet your specific requirement since this file has been copied to your project.
 
 const path = require('path');
@@ -13,7 +13,7 @@ const fallback = require('express-history-api-fallback');
 const webpack = require('webpack');
 const devMiddleware = require('webpack-dev-middleware');
 const hotMiddleware = require('webpack-hot-middleware');
-const rekitPortalMiddleWare = require('rekit-portal/middleware');
+const rekitStudioMiddleWare = require('rekit-studio/middleware');
 const request = require('request');
 const pkgJson = require('../package.json');
 const getConfig = require('../webpack-config');
@@ -27,7 +27,7 @@ const parser = new ArgumentParser({
 parser.addArgument(['-m', '--mode'], {
   help: 'Server mode, dev or build.',
   metavar: 'mode',
-  choices: ['dev', 'build', 'portal'],
+  choices: ['dev', 'build', 'studio'],
 });
 
 parser.addArgument(['--readonly'], {
@@ -114,13 +114,13 @@ function startBuildServer() {
   });
 }
 
-// Start an express server for rekit-portal.
-function startPortalServer() {
-  console.log('starting rekit portal...');
+// Start an express server for rekit-studio.
+function startStudioServer() {
+  console.log('Starting Rekit Studio...');
   const app = express();
   const server = http.createServer(app);
-  const root = path.join(__dirname, '../node_modules/rekit-portal/dist');
-  app.use(rekitPortalMiddleWare()(server, app, { readonly: !!args.readonly }));
+  const root = path.join(__dirname, '../node_modules/rekit-studio/dist');
+  app.use(rekitStudioMiddleWare()(server, app, { readonly: !!args.readonly }));
   app.use(express.static(root));
   app.use(fallback('index.html', { root }));
 
@@ -130,13 +130,13 @@ function startPortalServer() {
     res.sendStatus(404);
   });
 
-  const port = pkgJson.rekit.portalPort;
+  const port = pkgJson.rekit.studioPort;
   server.listen(port, (err) => {
     if (err) {
       console.error(err);
     }
 
-    console.log(`Portal server is listening at http://localhost:${port}/`);
+    console.log(`Studio server is listening at http://localhost:${port}/`);
   });
 }
 
@@ -192,4 +192,4 @@ function buildDevDll() {
 
 if (!args.mode || args.mode === 'build') startBuildServer();
 if (!args.mode || args.mode === 'dev') buildDevDll().then(startDevServer);
-if (!args.mode || args.mode === 'portal') startPortalServer();
+if (!args.mode || args.mode === 'studio') startStudioServer();
