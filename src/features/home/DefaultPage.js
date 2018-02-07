@@ -22,7 +22,7 @@ export class DefaultPage extends Component {
           Contratulations! You have created your Rekit app successfully! Seeing this page means everything works well now.
         </p>
         <p>
-          By default <a href="https://github.com/supnate/rekit-portal">Rekit portal</a> is also started at <a href="http://localhost:6076">http://localhost:6076</a> to manage the project.
+          By default <a href="https://github.com/supnate/rekit">Rekit Studio</a> is also started at <a href="http://localhost:6076">http://localhost:6076</a> to manage the project.
         </p>
         <p>
           The app has been initialized with two features named &quot;common&quot; and &quot;home&quot; and two samples: counter and Reddit list viewer as shown below.
