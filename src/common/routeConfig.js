@@ -29,7 +29,7 @@ function handleIndexRoute(route) {
   const indexRoute = route.childRoutes.find(child => child.isIndex);
   if (indexRoute) {
     const first = { ...indexRoute };
-    first.path = route.path;
+    first.path = '';
     first.exact = true;
     first.autoIndexRoute = true; // mark it so that the simple nav won't show it.
     route.childRoutes.unshift(first);
