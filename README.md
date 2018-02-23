@@ -7,6 +7,6 @@
 
 This is the boilerplate for Rekit to create a new app by default.
 
-In previous versions the boilerplate was shaped together with Rekit package which causes it's hard to update. Now it's separated so that you don't need to upgrade the global Rekit command frequently.
+In previous versions the boilerplate was shipped together with Rekit package which causes it's hard to update. Now it's separated so that you don't need to upgrade the global Rekit command frequently.
 
 For more information please visit: http://rekit.js.org .
