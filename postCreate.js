@@ -54,8 +54,6 @@ function handleCleanArgument(args) {
   });
   if (args.clean) {
     [
-      'src/features/common/PageNotFound.js',
-      'src/features/common/PageNotFound.less',
       'src/features/common/SimpleNav.js',
       'src/features/common/SimpleNav.less',
       'src/features/home/RedditList.js',
@@ -66,7 +64,6 @@ function handleCleanArgument(args) {
       'src/features/home/redux/counterPlusOne.js',
       'src/features/home/redux/resetCounter.js',
       'src/features/home/redux/fetchRedditReactjsList.js',
-      'tests/features/common/PageNotFound.test.js',
       'tests/features/common/SimpleNav.test.js',
       'tests/features/home/RedditList.test.js',
       'tests/features/home/TestPage.test.js',
