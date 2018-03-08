@@ -6,7 +6,6 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import ConnectedDefaultPage, { DefaultPage } from 'src/features/home/DefaultPage';
 
-
 describe('features/home/DefaultPage', () => {
   it('redux connect works', () => {
     const pageProps = {
